@@ -1,4 +1,4 @@
-cimport streamlit
+import streamlit
 import pandas as pd
 
 streamlit.title('My Parents New Healthy Diner')
