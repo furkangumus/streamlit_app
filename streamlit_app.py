@@ -1,4 +1,4 @@
-import streamlit
+cimport streamlit
 import pandas as pd
 
 streamlit.title('My Parents New Healthy Diner')
@@ -16,7 +16,8 @@ fruits_df = fruits_df.set_index('Fruit')
 
 # Let's put a picker so a user can pick the fruit they want
 fruits_list = list(fruits_df.index)
-streamlit.multiselect('Pick some fruits:', fruits_list, fruits_list[:2])
+selected_fruits = streamlit.multiselect('Pick some fruits:', fruits_list, fruits_list[:2])
+fruits_to_show = fruits_df.loc[selected_fruits]
 
 # display the table on the screen
-streamlit.dataframe(fruits_df)
+streamlit.dataframe(fruits_to_show)
