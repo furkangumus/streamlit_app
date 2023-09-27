@@ -2,9 +2,9 @@ import streamlit
 import pandas as pd
 import requests
 
-streamlit.title('My Parents New Healthy Diner')
+streamlit.title('My Mom's New Healthy Diner')
 
-streamlit.header('Breakfast Menu')
+streamlit.header('Breakfast Favorites')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
 streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
 streamlit.text('🐔 Hard-Boiled Free-Range Egg')
@@ -27,4 +27,4 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header("Fruityvice Fruit Advice!")
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
