@@ -40,7 +40,18 @@ streamlit.dataframe(fruityvice_response_normalized)
 # Snowflake Things
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
+
+fruit_to_add = streamlit.text_input('What fruit would you like add?')
+streamlit.write('Thanks for adding', fruit_to_add)
+
+my_cur.execute(f"INSERT INTO FRUIT_LOAD_LIST VALUES ('{fruit_to_add}')")
+my_cnx.commit()
+
 my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
+
+
+
+
