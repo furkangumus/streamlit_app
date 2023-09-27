@@ -28,8 +28,8 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice = streamlit.text_input('What fruit would you like information about?', 'Kiwi')
 streamlit.write('The user entered', fruit_choice)
 
-endpoint_url = "https://fruityvice.com/api/fruit/{user_ch}"
-fruityvice_response = requests.get(endpoint_url.format(user_ch=user_choice.to_lower()))
+endpoint_url = "https://fruityvice.com/api/fruit/{user_choice}"
+fruityvice_response = requests.get(endpoint_url.format(user_choice=fruit_choice.to_lower()))
 
 # take the json response and normalize it
 fruityvice_response_normalized = pd.json_normalize(fruityvice_response.json())
